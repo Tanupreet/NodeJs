@@ -1,11 +1,5 @@
 [
   {
-    "CountryName": "Country Name",
-    "Population": "Population (Millions) - 2013",
-    "GDP": "GDP Billions (US$) - 2013",
-    "PurchasingPower": "Purchasing Power in Billions ( Current International Dollar) - 2013"
-  },
-  {
     "CountryName": "Argentina",
     "Population": "41.49",
     "GDP": "498.70",
