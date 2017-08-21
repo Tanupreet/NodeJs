@@ -91,7 +91,7 @@ lineReader.on('line', function (line) {
     });
 
 lineReader.on('close', function (line) {
-var obj=output3.filter(e => e.GDP )													//
+var obj=output3.filter(e => e.GDP )													
     .sort((a, b) => (b.GDP - a.GDP))
      //removing the header
    obj.shift();

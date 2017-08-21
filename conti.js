@@ -180,9 +180,7 @@ rl.on('line', function(line) {
             fs.writeFileSync("Pur.json", JSON.stringify(purchasingPowerByCountryArray), encoding = "utf8");
             fs.writeFileSync("GrowthChart.json", JSON.stringify(GrowthArray), encoding = "utf8");
 
-        }
-
-    }
+        
 
 
 });
