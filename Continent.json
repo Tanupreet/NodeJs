@@ -1,134 +1,34 @@
 [
   {
-    "Population": "Population (Millions) - 2013"
-  },
-  {
-    "Population": "Population (Millions) - 2013"
-  },
-  {
-    "Population": "41.49"
-  },
-  {
-    "Population": "41.49"
-  },
-  {
+    "Continent": "Australia",
     "Population": "23.05"
   },
   {
-    "Population": "23.05"
-  },
-  {
-    "Population": "199.88"
-  },
-  {
-    "Population": "199.88"
-  },
-  {
-    "Population": "35.21"
-  },
-  {
-    "Population": "35.21"
-  },
-  {
+    "Continent": "Asia",
     "Population": "1360.76"
   },
   {
-    "Population": "1360.76"
-  },
-  {
-    "Population": "63.70"
-  },
-  {
-    "Population": "63.70"
-  },
-  {
-    "Population": "81.75"
-  },
-  {
-    "Population": "81.75"
-  },
-  {
+    "Continent": "Asia",
     "Population": "1239.26"
   },
   {
-    "Population": "1239.26"
-  },
-  {
+    "Continent": "Asia",
     "Population": "247.95"
   },
   {
-    "Population": "247.95"
-  },
-  {
-    "Population": "61.00"
-  },
-  {
-    "Population": "61.00"
-  },
-  {
+    "Continent": "Asia",
     "Population": "127.34"
   },
   {
-    "Population": "127.34"
-  },
-  {
-    "Population": "116.02"
-  },
-  {
-    "Population": "116.02"
-  },
-  {
-    "Population": "141.44"
-  },
-  {
-    "Population": "141.44"
-  },
-  {
+    "Continent": "Asia",
     "Population": "26.93"
   },
   {
-    "Population": "26.93"
-  },
-  {
-    "Population": "51.81"
-  },
-  {
-    "Population": "51.81"
-  },
-  {
+    "Continent": "Asia",
     "Population": "50.24"
   },
   {
-    "Population": "50.24"
-  },
-  {
+    "Continent": "Asia",
     "Population": "75.81"
-  },
-  {
-    "Population": "75.81"
-  },
-  {
-    "Population": "63.76"
-  },
-  {
-    "Population": "63.76"
-  },
-  {
-    "Population": "316.85"
-  },
-  {
-    "Population": "316.85"
-  },
-  {
-    "Population": "504.89"
-  },
-  {
-    "Population": "504.89"
-  },
-  {
-    "Population": "7095.22"
-  },
-  {
-    "Population": "7095.22"
   }
 ]

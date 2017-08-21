@@ -1,54 +1,54 @@
-/*var fs= require('fs');
+/*var fs= require('fs')
 
 fs.readFile('datafile.csv','utf-8',function(err,data){
-fs.writeFile('writeme.txt',data);
-console.log(data);
-});
+fs.writeFile('writeme.txt',data)
+console.log(data)
+})
 
 
 
 
 
-/*fs.writeFileSync('writeme.txt',read);*/
+/*fs.writeFileSync('writeme.txt',read)*/
 
 
-/*var fs = require('fs');
+/*var fs = require('fs')
 fs.readFile('datafile.csv', function(err, data) {
-    if(err) throw err;
-    var array = data.toString().split("\n");
+    if(err) throw err
+    var array = data.toString().split("\n")
     for(i in array) {
-        console.log(array[i]);
+        console.log(array[i])
     }
 })*/
 
 
-/*var fs = require("fs");
-var data = '';
+/*var fs = require("fs")
+var data = ''
 
-var readerStream = fs.createReadStream('datafile.csv');
-readerStream.setEncoding('UTF8');
+var readerStream = fs.createReadStream('datafile.csv')
+readerStream.setEncoding('UTF8')
 
 readerStream.on('data', function(chunk) {
-  data += chunk;
+  data += chunk
     a = data
        .trim()
        .split('\n')
-       .map((data) => data.split(','));
+       .map((data) => data.split(','))
 
 
-});
+})
 
 
 readerStream.on('end',function(){
-for(i=0; i<=20; i++){
-console.log(a[i][0],a[i][5]);
+for(i=0 i<=20 i++){
+console.log(a[i][0],a[i][5])
 
 }
-});
+})
 
 readerStream.on('error', function(err){
-  console.log(err.stack);
-});
+  console.log(err.stack)
+})
 */
 
 var output = []
@@ -58,11 +58,11 @@ var output4 = []
 var output5 = []
 //var count = 0
 var fs = require("fs")
-//const content= JSON.stringify(output);
+//const content= JSON.stringify(output)
 
 var lineReader = require('readline').createInterface({
   input: require('fs').createReadStream('Table1.3_g20_2013.csv')
-});
+})
 
 var myWriteStream1= require("fs").createWriteStream("Main.json")
 var myWriteStream2= require("fs").createWriteStream("Population.json")
@@ -77,23 +77,23 @@ lineReader.on('line', function (line) {
    var jsonFromLine5 = {}
 
    // this is my conditional. Set line 2
-    var lineSplit = line.split(',');
+    var lineSplit = line.split(',')
     // select columns you want
-    jsonFromLine.CountryName = lineSplit[0];
-    jsonFromLine.Population = lineSplit[5];
-    jsonFromLine.GDP = lineSplit[9];
-    jsonFromLine.PurchasingPower = lineSplit[17];
-    jsonFromLine2.CountryName = lineSplit[0];
-    jsonFromLine2.Population = lineSplit[5];
-    jsonFromLine3.CountryName = lineSplit[0];
-    jsonFromLine3.GDP = lineSplit[9];
-     jsonFromLine4.CountryName = lineSplit[0];
-    jsonFromLine4.PurchasingPower = lineSplit[17];
-    jsonFromLine5.CountryName = lineSplit[0];
-    jsonFromLine5.Population = lineSplit[2]-lineSplit[5];
-    jsonFromLine5.PurchasingPower = lineSplit[17]-lineSplit[14];
+    jsonFromLine.CountryName = lineSplit[0]
+    jsonFromLine.Population = lineSplit[5]
+    jsonFromLine.GDP = lineSplit[9]
+    jsonFromLine.PurchasingPower = lineSplit[17]
+    jsonFromLine2.CountryName = lineSplit[0]
+    jsonFromLine2.Population = lineSplit[5]
+    jsonFromLine3.CountryName = lineSplit[0]
+    jsonFromLine3.GDP = lineSplit[9]
+     jsonFromLine4.CountryName = lineSplit[0]
+    jsonFromLine4.PurchasingPower = lineSplit[17]
+    jsonFromLine5.CountryName = lineSplit[0]
+    jsonFromLine5.Population = lineSplit[2]-lineSplit[5]
+    jsonFromLine5.PurchasingPower = lineSplit[17]-lineSplit[14]
     // ...  
-    output.push(jsonFromLine);
+    output.push(jsonFromLine)
     if (jsonFromLine.CountryName == 'European Union' || jsonFromLine.CountryName == 'World' 
     	||jsonFromLine2.CountryName == 'European Union' || jsonFromLine2.CountryName == 'World'
     	||jsonFromLine3.CountryName == 'European Union' || jsonFromLine3.CountryName == 'World'
@@ -102,42 +102,42 @@ lineReader.on('line', function (line) {
     	 {
 
    } else {
-     output2.push(jsonFromLine2);
-     output3.push(jsonFromLine3);
-    output4.push(jsonFromLine4);
-      output5.push(jsonFromLine5);
-   /*  output6.push(jsonFromLine6);*/
+     output2.push(jsonFromLine2)
+     output3.push(jsonFromLine3)
+    output4.push(jsonFromLine4)
+      output5.push(jsonFromLine5)
+   /*  output6.push(jsonFromLine6)*/
 }
     
 
-    });
+    })
 
 lineReader.on('close', function (line) {
-	output.shift();
+	output.shift()
 	myWriteStream1.write(JSON.stringify(output,null,2))	
 
 	var obj2=output2.filter(e => e.Population )											
     .sort((a, b) => (b.Population - a.Population))
-    obj2.shift();
+    obj2.shift()
     myWriteStream2.write(JSON.stringify(obj2,null,2))
 	
 	var obj3=output3.filter(f => f.GDP )													
     .sort((c, d) => (d.GDP - c.GDP))
      //removing the header
-   obj3.shift();
+   obj3.shift()
     myWriteStream3.write(JSON.stringify(obj3,null,2))	
 
     var obj4=output4.filter(e => e.PurchasingPower )											
     .sort((a, b) => (b.PurchasingPower - a.PurchasingPower))
      //removing the header
-    obj4.shift();
+    obj4.shift()
     myWriteStream4.write(JSON.stringify(obj4,null,2))	
 
     var obj5=output5.filter(e => e.Population )										
     .sort((a, b) => (b.Population - a.Population))
    
     myWriteStream5.write(JSON.stringify(obj5,null,2))				
-});
+})
 
 //--------------------------------------------------------------------------part 1 main ends----------------------------------------------------------------
 
@@ -147,49 +147,47 @@ lineReader.on('close', function (line) {
 
 
 
-var output6 = [];
-var asiaContinent = ['India', 'China', 'Japan', 'Indonesia','Saudi Arabia', 'Republic of Korea','Turkey','Japan'];
-var europeContinent = ['France', 'Russia', 'UK', 'Italy','United Kingdom'];
-var northAmericaContinent = ['Mexico', 'canada', 'USA'];
-var southAmericaContinent = ['Argentina' , 'Brazil'];
-var australiaContinent = ['Australia'];
-var africaContinent = ['South Africa', ];
-var arrContinents = ["africa", "europe", "northAmerica", "southAmerica", "australia", "asia"];
+var output6 = []
+
+//var arrContinents = ["africa", "europe", "northAmerica", "southAmerica", "australia", "asia"]
 var lineReader = require('readline').createInterface({
   input: require('fs').createReadStream('Table1.3_g20_2013.csv')
-});
+})
 
 var myWriteStream6= require("fs").createWriteStream("Continent.json")
 lineReader.on('line', function (line) {
-  var jsonFromLine = {};
+  var jsonFromLine6 = {}
 
    // this is my conditional. Set line 2
-    var lineSplit = line.split(',');
+    var lineSplit = line.split(',')
     // select columns you want
     //jsonFromLine.Continent=lineSplit[0]
     
-    if(australiaContinent )
-    {
-    	jsonFromLine.Population=lineSplit[5];
-    
-   output6.push(jsonFromLine);
+  if(lineSplit[0]=="Australia"){
+    	jsonFromLine6.Continent="Australia"
+    	jsonFromLine6.Population=lineSplit[5]
+    output6.push(jsonFromLine6)
+   
 }
-	if(asiaContinent)
-    {
-    
-    	jsonFromLine.Population=lineSplit[5];
-    
-   output6.push(jsonFromLine);
+ if(lineSplit[0]=="India" || lineSplit[0]=="China" || lineSplit[0]=="Japan" || lineSplit[0]=="Indonesia" || lineSplit[0]=="Saudi Arabia" 
+	|| lineSplit[0]=="Turkey" || lineSplit[0]=="Republic of Korea"){
+	jsonFromLine6.Continent="Asia"
+	jsonFromLine6.Population=lineSplit[5]
+
+	output6.push(jsonFromLine6)
 }
 
-    });
+    })
 
 lineReader.on('close', function (line) {
-/*var obj=output6.filter(e => e.Population )										
-    .sort((a, b) => (b.Population - a.Population))
-   */
+var r = output6.reduce((c,data)=>{
+	if(data.Continent=="Asia")
+c+=parseFloat(data.Population)
+return c
+}, 0)
+console.log(r)
     myWriteStream6.write(JSON.stringify(output6,null,2))
-});
+})
 
 
 
@@ -201,7 +199,7 @@ var obj=output.filter(e => e.Population )											//part 2 population
   
 
     myWriteStream2.write(JSON.stringify(obj,null,2))
-});
+})
 
 
 var myWriteStream3= require("fs").createWriteStream("Gdp.json")
@@ -210,7 +208,7 @@ var obj=output.filter(e => e.GDP )													//part 3 gdp
     .sort((a, b) => (b.GDP - a.GDP))
     
     myWriteStream3.write(JSON.stringify(obj,null,2))
-});
+})
 
 
 
@@ -220,7 +218,7 @@ var obj=output.filter(e => e.PurchasingPower )											//part 4 purchasing pow
     .sort((a, b) => (b.PurchasingPower - a.PurchasingPower))
     
     myWriteStream4.write(JSON.stringify(obj,null,2))
-});
+})
 
 
 
@@ -230,15 +228,15 @@ var obj=output.filter(e => e.PurchasingPower )											//part 4 purchasing pow
 
 
 output.filter(function (e) {
-    return e.Population;
+    return e.Population
 }).sort(function (a, b) {
-    return b.Population - a.Population;
+    return b.Population - a.Population
 }).map(function (e) {
-    console.log("{ CountryName :" '"'+e.CountryName +'"' " Population :" '"'+e.Population+'"'"},");
-});
+    console.log("{ CountryName :" '"'+e.CountryName +'"' " Population :" '"'+e.Population+'"'"},")
+})
 
 
 
 lineReader.on('close', function (line) {
-    console.log(output); // list output 
-});*/
+    console.log(output) // list output 
+})*/
