@@ -1,48 +1,46 @@
 var output6 = []
-var output7 = []
-
-//var arrContinents = ["africa", "europe", "northAmerica", "southAmerica", "australia", "asia"]
+var count = [[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]]
+var arrContinents = ["Africa", "Europe", "NorthAmerica", "SouthAmerica", "Australia", "Asia"]
 var lineReader = require('readline').createInterface({
   input: require('fs').createReadStream('Table1.3_g20_2013.csv')
 })
-
 var myWriteStream6= require("fs").createWriteStream("Continent.json")
 lineReader.on('line', function (line) {
-  var jsonFromLine6 = {}
-
-  // this is my conditional. Set line 2
     var lineSplit = line.split(',')
-    // select columns you want
-    //jsonFromLine.Continent=lineSplit[0]
-    
-  if(lineSplit[0]=="Australia"){
-    	jsonFromLine6.Continent="Australia"
-    	jsonFromLine6.Population=lineSplit[5]
-    output6.push(jsonFromLine6)
-   
-}
- if(lineSplit[0]=="India" || lineSplit[0]=="China" || lineSplit[0]=="Japan" || lineSplit[0]=="Indonesia" || lineSplit[0]=="Saudi Arabia" 
+  if(lineSplit[0]=="South Africa"){
+count[0][0]+=parseFloat(lineSplit[5])
+count[1][0]+=parseFloat(lineSplit[9])
+     }
+  else if (lineSplit[0]=='Germany' ||lineSplit[0]=="Italy"||lineSplit[0]=="France"||lineSplit[0]=="Russia") {
+     count[0][1]+=parseFloat(lineSplit[5])
+     count[1][1]+=parseFloat(lineSplit[9])
+  }
+  else if(lineSplit[0]=='USA' ||lineSplit[0]=="Canada"|| lineSplit[0]=="Mexico"){
+    count[0][2]+=parseFloat(lineSplit[5])
+    count[1][2]+=parseFloat(lineSplit[9])
+  }
+  else if(lineSplit[0]=='Brazil' ||lineSplit[0]=="Argentina"){
+    count[0][3]+=parseFloat(lineSplit[5])
+    count[1][3]+=parseFloat(lineSplit[9])
+  }
+  else if(lineSplit[0]=="Australia"){
+    count[0][4]+=parseFloat(lineSplit[5])
+    count[1][4]+=parseFloat(lineSplit[9])
+  }
+  else if(lineSplit[0]=="India" || lineSplit[0]=="China" || lineSplit[0]=="Japan" || lineSplit[0]=="Indonesia" || lineSplit[0]=="Saudi Arabia" 
 	|| lineSplit[0]=="Turkey" || lineSplit[0]=="Republic of Korea"){
-	jsonFromLine6.Continent="Asia"
-	jsonFromLine6.Population=lineSplit[5]
-
-	output6.push(jsonFromLine6)
-	output7.push(jsonFromLine6)
-}
-
-    })
-
+	count[0][5]+=parseFloat(lineSplit[5])
+count[1][5]+=parseFloat(lineSplit[9])
+  }
+})
 lineReader.on('close', function (line) {
-var r = output7.reduce((c,data)=>{
-	if(data.Continent=="Asia")
-c+=parseFloat(data.Population)
-return c
-}, 0)
-console.log(r)
-output6[1].Population=r
-if(output6[1]){
-	//console.log(output6[1].Population)
-	myWriteStream6.write(JSON.stringify(output6,null,2))
-    myWriteStream6.write(JSON.stringify(r,null,2))
+ for(i=0;i<6;i++){
+  var result={
+    Continent:arrContinents[i],
+    Population:count[0][i],
+    GDP:count[1][i]
 }
+  output6.push(result)
+}
+	myWriteStream6.write(JSON.stringify(output6,null,2))
 })

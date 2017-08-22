@@ -1,34 +1,32 @@
 [
   {
+    "Continent": "Africa",
+    "Population": 51.81,
+    "GDP": 375.99
+  },
+  {
+    "Continent": "Europe",
+    "Population": 347.89,
+    "GDP": 10626.82
+  },
+  {
+    "Continent": "NorthAmerica",
+    "Population": 468.08000000000004,
+    "GDP": 19356.47
+  },
+  {
+    "Continent": "SouthAmerica",
+    "Population": 241.37,
+    "GDP": 2955.3599999999997
+  },
+  {
     "Continent": "Australia",
-    "Population": "23.05"
+    "Population": 23.05,
+    "GDP": 1589.12
   },
   {
     "Continent": "Asia",
-    "Population": 3128.2899999999995
-  },
-  {
-    "Continent": "Asia",
-    "Population": "1239.26"
-  },
-  {
-    "Continent": "Asia",
-    "Population": "247.95"
-  },
-  {
-    "Continent": "Asia",
-    "Population": "127.34"
-  },
-  {
-    "Continent": "Asia",
-    "Population": "26.93"
-  },
-  {
-    "Continent": "Asia",
-    "Population": "50.24"
-  },
-  {
-    "Continent": "Asia",
-    "Population": "75.81"
+    "Population": 3128.2899999999995,
+    "GDP": 19945.469999999998
   }
-]3128.2899999999995
+]
