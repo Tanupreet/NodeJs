@@ -148,6 +148,7 @@ lineReader.on('close', function (line) {
 
 
 var output6 = []
+var output7 = []
 
 //var arrContinents = ["africa", "europe", "northAmerica", "southAmerica", "australia", "asia"]
 var lineReader = require('readline').createInterface({
@@ -158,7 +159,7 @@ var myWriteStream6= require("fs").createWriteStream("Continent.json")
 lineReader.on('line', function (line) {
   var jsonFromLine6 = {}
 
-   // this is my conditional. Set line 2
+  // this is my conditional. Set line 2
     var lineSplit = line.split(',')
     // select columns you want
     //jsonFromLine.Continent=lineSplit[0]
@@ -175,18 +176,24 @@ lineReader.on('line', function (line) {
 	jsonFromLine6.Population=lineSplit[5]
 
 	output6.push(jsonFromLine6)
+	output7.push(jsonFromLine6)
 }
 
     })
 
 lineReader.on('close', function (line) {
-var r = output6.reduce((c,data)=>{
+var r = output7.reduce((c,data)=>{
 	if(data.Continent=="Asia")
 c+=parseFloat(data.Population)
 return c
 }, 0)
 console.log(r)
-    myWriteStream6.write(JSON.stringify(output6,null,2))
+output6[1].Population=r
+if(output6[1]){
+	//console.log(output6[1].Population)
+	myWriteStream6.write(JSON.stringify(output6,null,2))
+    myWriteStream6.write(JSON.stringify(r,null,2))
+}
 })
 
 
