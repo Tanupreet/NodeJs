@@ -1,0 +1,66 @@
+[
+    {
+        "categorie": "Asia", 
+        "values": [
+            {
+                "value": 3128.2899999999995, 
+                "rate": "Population"
+            }, 
+            {
+                "value": 19945.469999999998, 
+                "rate": "GDP"
+            }
+        ]
+    }, 
+    {
+        "categorie": "Africa", 
+        "values": [
+            {
+                "value": 312.2899999999995, 
+                "rate": "Population"
+            }, 
+            {
+                "value": 19945.469999999998, 
+                "rate": "GDP"
+            }
+        ]
+    }, 
+    {
+        "categorie": "North America", 
+        "values": [
+            {
+                "value": 200.2899999999995, 
+                "rate": "Population"
+            }, 
+            {
+                "value": 19945.469999999998, 
+                "rate": "GDP"
+        }]
+    }, 
+    {
+        "categorie": "South America", 
+        "values": [
+            {
+                "value": 30.2899999999995, 
+                "rate": "Population"
+            }, 
+            {
+                "value": 19900.469999999998, 
+                "rate": "GDP"
+            }
+        ]
+    }, 
+    {
+        "categorie": "Australia", 
+        "values": [
+            {
+               "value": 23.5, 
+                "rate": "Population"
+            }, 
+            {
+                "value": 19040, 
+                "rate": "GDP"
+            }
+        ]
+    }
+]

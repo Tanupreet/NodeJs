@@ -7,7 +7,7 @@ var arrContinents = ["Africa", "Europe", "NorthAmerica", "SouthAmerica", "Austra
 var lineReader = require('readline').createInterface({
     input: require('fs').createReadStream('Table1.3_g20_2013.csv')
 })
-var myWriteStream6 = require("fs").createWriteStream("Continent.json")
+var myWriteStream6 = require("fs").createWriteStream("../json/Continent.json")
 lineReader.on('line', function(line) {
     var lineSplit = line.split(',')
     if (lineSplit[0] == "South Africa") {
