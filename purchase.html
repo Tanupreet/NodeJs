@@ -100,7 +100,7 @@ body {
 
     svg.call(tip);
 
-    d3.json("PurchasingPower.json", function(error, data) {
+    d3.json("../json/PurchasingPower.json", function(error, data) {
         x.domain(data.map(function(d) { return d.CountryName; }));
         y.domain([0, d3.max(data, function(d) { return d.PurchasingPower > 16500 ? d.PurchasingPower : 16500; })]);
 

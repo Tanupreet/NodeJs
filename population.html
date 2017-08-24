@@ -100,7 +100,7 @@ body {
 
     svg.call(tip);
 
-    d3.json("Population.json", function(error, data) {
+    d3.json("../json/Population.json", function(error, data) {
         x.domain(data.map(function(d) { return d.CountryName; }));
         y.domain([0, d3.max(data, function(d) { return d.Population > 3200 ? d.Population : 3200; })]);
 

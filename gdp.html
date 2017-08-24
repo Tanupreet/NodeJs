@@ -100,7 +100,7 @@ body {
 
     svg.call(tip);
 
-    d3.json("Gdp.json", function(error, data) {
+    d3.json("../json/Gdp.json", function(error, data) {
         x.domain(data.map(function(d) { return d.CountryName; }));
         y.domain([0, d3.max(data, function(d) { return d.GDP > 20000 ? d.GDP : 20000; })]);
 
