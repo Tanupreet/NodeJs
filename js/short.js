@@ -22,7 +22,8 @@ lineReader.on('line', function(line) {
     jsonFromLine5.PurchasingPower2010 = lineSplit[14]
     jsonFromLine5.PurchasingPower2013 = lineSplit[17]
     output.push(jsonFromLine);
-    if (jsonFromLine.CountryName == 'European Union' || jsonFromLine.CountryName == 'World' || jsonFromLine2.CountryName == 'European Union' || jsonFromLine2.CountryName == 'World' || jsonFromLine3.CountryName == 'European Union' || jsonFromLine3.CountryName == 'World' || jsonFromLine4.CountryName == 'European Union' || jsonFromLine4.CountryName == 'World' || jsonFromLine5.CountryName == 'European Union' || jsonFromLine5.CountryName == 'World') {} else {
+    if (jsonFromLine.CountryName == 'European Union' || jsonFromLine.CountryName == 'World' || jsonFromLine2.CountryName == 'European Union' || jsonFromLine2.CountryName == 'World' || jsonFromLine3.CountryName == 'European Union' || jsonFromLine3.CountryName == 'World' || jsonFromLine4.CountryName == 'European Union' || jsonFromLine4.CountryName == 'World' || jsonFromLine5.CountryName == 'European Union' || jsonFromLine5.CountryName == 'World') 
+        {} else {
         output2.push(jsonFromLine2)
         output3.push(jsonFromLine3)
         output4.push(jsonFromLine4)
