@@ -1,42 +1,4 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-body {
-    font: 10px sans-serif;
-}
-
-.y.axisRight text {
-    fill: orange;
-}
-
-.y.axisLeft text {
-    fill: steelblue;
-}
-
-.axis path,
-.axis line {
-    fill: none;
-    stroke: #000;
-    shape-rendering: crispEdges;
-}
-
-.bar1 {
-    fill: steelblue;
-}
-
-.bar2 {
-    fill: orange;
-}
-
-.x.axis path {
-    display: none;
-}
-</style>
-
-<body>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script>
-    var margin = { top: 80, right: 80, bottom: 80, left: 80 },
+   var margin = { top: 80, right: 80, bottom: 80, left: 80 },
         width = 600 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
     var x = d3.scale.ordinal()
@@ -56,7 +18,7 @@ body {
         .append("g")
         .attr("class", "graph")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    d3.json("../json/Continent.json", function(error, data) {
+    d3.json("../../json/Continent.json", function(error, data) {
         x.domain(data.map(function(d) { return d.Continent; }));
         y0.domain([0, d3.max(data, function(d) { return d.GDP > 20000 ? d.GDP : 20000; })]);
         y1.domain([0, d3.max(data, function(d) { return d.Population > 3200 ? d.Population : 3200; })]);
@@ -105,4 +67,3 @@ body {
         d.GDP = +d.GDP;
         return d;
     }
-    </script>

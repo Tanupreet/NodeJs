@@ -1,70 +1,4 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-body {
-    font: 10px sans-serif;
-    margin-left: 10%;
-}
-
-.axis path,
-.axis line {
-    fill: none;
-    stroke: #000;
-    shape-rendering: crispEdges;
-}
-
-.bar {
-    fill: #26af22;
-}
-
-.bar:hover {
-    fill: #660000;
-}
-
-.x.axis path {
-    display: none;
-}
-
-.d3-tip {
-    line-height: 1;
-    font-weight: bold;
-    padding: 12px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    border-radius: 2px;
-}
-
-
-/* Creates a small triangle extender for the tooltip */
-
-.d3-tip:after {
-    box-sizing: border-box;
-    display: inline;
-    font-size: 10px;
-    width: 100%;
-    line-height: 1;
-    color: rgba(0, 0, 0, 0.8);
-    content: "\25BC";
-    position: absolute;
-    text-align: center;
-}
-
-
-/* Style northward tooltips differently */
-
-.d3-tip.n:after {
-    margin: -1px 0 0 0;
-    top: 100%;
-    left: 0;
-}
-</style>
-
-<body>
-<h2>Bar Graph Population</h2>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-    <script>
-    var margin = { top: 50, right: 0, bottom: 20, left: 65 },
+var margin = { top: 50, right: 0, bottom: 20, left: 65 },
         width = 1300 - margin.left /*- margin.right*/ ,
         height = 700 - margin.top - margin.bottom;
 
@@ -89,7 +23,7 @@ body {
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return "<strong> Population: </strong> <span style='color:red'>" + d.Population + "</span>";
+            return "<strong> GDP: </strong> <span style='color:red'>" + d.GDP + "</span>";
         })
 
     var svg = d3.select("body").append("svg")
@@ -100,9 +34,9 @@ body {
 
     svg.call(tip);
 
-    d3.json("../json/Population.json", function(error, data) {
+    d3.json("../../json/Gdp.json", function(error, data) {
         x.domain(data.map(function(d) { return d.CountryName; }));
-        y.domain([0, d3.max(data, function(d) { return d.Population > 3200 ? d.Population : 3200; })]);
+        y.domain([0, d3.max(data, function(d) { return d.GDP > 20000 ? d.GDP : 20000; })]);
 
         svg.append("g")
             .attr("class", "x axis")
@@ -118,7 +52,7 @@ body {
             .attr("y", 6)
             .attr("dy", ".71em")
             .style("text-anchor", "end")
-            .text("Population");
+            .text("GDP");
 
         svg.selectAll(".bar")
             .data(data)
@@ -126,11 +60,9 @@ body {
             .attr("class", "bar")
             .attr("x", function(d) { return x(d.CountryName); })
             .attr("width", x.rangeBand())
-            .attr("y", function(d) { return y(d.Population); })
-            .attr("height", function(d) { return height - y(d.Population); })
+            .attr("y", function(d) { return y(d.GDP); })
+            .attr("height", function(d) { return height - y(d.GDP); })
             .on('mouseover', tip.show)
             .on('mouseout', tip.hide)
 
     });
-  
-    </script>
